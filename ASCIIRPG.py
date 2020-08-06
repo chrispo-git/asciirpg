@@ -5,16 +5,47 @@ import img
 import spell
 import quests
 import time
+import shop
 
-print(""" 
+days = 365
+diff_days = [999,365,90]
+
+print("""
+1.Easy   - 999 days
+2.Normal - 365 days
+3.Hard   - 90  days
+""")
+difficultyinput = input("")
+try:
+    difficultyinput = int(difficultyinput)
+    difficultyinput -= 1
+except ValueError:
+    difficultyinput = 1
+days = diff_days[difficultyinput]
+
+print(f""" 
     _     ___    ___ ___ ___   ___ ___  ___ 
    /_\   / __|  / __|_ _|_ _| | _ | _ \/ __|
   / _ \  \__ \ | (__ | | | |  |   |  _| (_ |
  /_/ \_\ |___/  \___|___|___| |_|_|_|  \___|
-                                        
+
+you have {days} days to earn 50,000 gold.                                        
                                                     """)
 time.sleep(3)
 os.system('cls')
+shop_on = False
+
+def passtime():
+    global days
+    global gold
+    days -= 1
+    if gold > 49999:
+        input("Congrats! You win!")
+        sys.exit()
+    elif days == 0:
+        input("Times up. The debt collectors have caught you.")
+    else:
+        input(f"{days} days left. {50000-gold} gold left!")
 
 
 #SAVES
@@ -28,6 +59,7 @@ def save():
   global equip
   global inventory
   global exp
+  global days
   global questlvl
   f = open("save.txt","w+")
   f.write(str(lvl)+"\n")
@@ -39,6 +71,7 @@ def save():
   f.write(str(equip)+"\n")
   f.write(str(exp)+"\n")
   f.write(str(questlvl)+"\n")
+  f.write(str(days)+"\n")
   inven = "".join(inventory)
   f.write(str(inven))
   f.close()
@@ -53,10 +86,11 @@ def load():
   global equip
   global inventory
   global exp
+  global days
   global questlvl
   f = open("save.txt","r")
   lvl = int(f.readline())
-  hp = int(f.readline())
+  mhp = int(f.readline())
   atk = int(f.readline())
   defence = int(f.readline())
   spd = int(f.readline())
@@ -64,6 +98,7 @@ def load():
   equip = int(f.readline())
   exp = int(f.readline())
   questlvl = int(f.readline())
+  days = int(f.readline())
   inven = f.readline()
   inven2 = inven.split()
   inventory = []
@@ -171,6 +206,7 @@ def home():
   global equip
   global inventory
   global exp
+  global shop_on
   while True:
     os.system('cls')
     img.town_img(0)
@@ -179,19 +215,32 @@ def home():
       sys.exit(0)
     print(f"""
   1.Adventure's guild         {gold} Gold
-  2.Go Hunting
+  2.Go Hunting                {days} Days
   3.Stats
   4.Save
-  5.Load""")
+  5.Load
+  6.Shop
+  """)
     homeinput = input("")
     if homeinput == "1":
       guild()
+      passtime()
     elif homeinput == "2":
       hunt(-1,0)#-1 is a random encounter. 0 allows gaining of gold
+      passtime()
     elif homeinput == "4":
       save()
     elif homeinput == "5":
       load()
+    elif homeinput == "6":
+      passtime()
+      if shop_on == False:
+        shop_oninput = input("Buy a shop for 3000 gold?(y/n)")
+        if shop_oninput == "y" and gold > 3000:
+            shop_on = True
+            gold -= 300
+      if shop_on == True:
+        gold = shop.shop(gold)
     else:
       os.system('cls')
       img.town_img(4)
