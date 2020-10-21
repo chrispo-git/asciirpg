@@ -3,7 +3,10 @@ import random
 stock = 0
 
 
-def shop(gold):
+def shop(gold,c_id):
+    stock_multiplier = 1
+    if c_id == 8:
+        stock_multiplier = 0.5
     global stock
     g = gold
     print(f"""
@@ -12,15 +15,15 @@ def shop(gold):
 """)
     shopinput = input("")
     if shopinput == "1":
-        print("100 gold per stock")
+        print(f"{int(100 * stock_multiplier)} gold per stock")
         amount = input("quantity:")
         try:
             amount = int(amount)
         except ValueError:
             amount = 1
-        if g > 100 * amount:
+        if g > 100 * amount * stock_multiplier:
             stock += amount
-            g -= 100 * amount
+            g -= int(100 * amount * stock_multiplier)
         else:
             input("Not enough gold")
     if shopinput == "2":

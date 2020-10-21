@@ -12,5 +12,6 @@ If you want to edit your save data, here is what each line refers to:
 8.exp
 9.guild rank
 10.days left
-11.Inventory with item ids*
+11.class
+12.Inventory with item ids*
 *the item IDs correspond with the number in the shop - 1

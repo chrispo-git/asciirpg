@@ -416,7 +416,39 @@ ossso.   -+oo    /oo:`  `ossso
   :ssssssssss    +sssssssss:  
    .+yyyyyyyy/..:yyyyyyyy+.   
      ./syyyyyyyyyyyyyys/.     
-        .-/+osssso+/-.      """]
+        .-/+osssso+/-.      ""","""
+                                                 `:+shNMh   
+                                           .:oydNMMMMMMMM`  
+                                    `-/oymMMMMMNdyo/-/MMM`  
+                              `-+shmMMMMMNdy+:.      :MMM`  
+                        .:+sdNMMMMMmhs+-`            :MMM`  
+                   `oydNMMMMMmyo/-`                  :MMM`  
+                   sMMMdyo:.                   `-/oydMMMM`  
+                   yMMh                  `-/shmMMMMMNmMMM`  
+                   yMMh            .:+shNMMMMMNhs+:` :MMM`  
+                   yMMh      .:oydNMMMMMmhs/-`       :MMM`  
+                   yMMd-/ohmMMMMMNdyo/.              :MMM`  
+                   yMMMMMMMNds+:.                    :MMM`  
+                   yMMNs/-`                          :MMM`  
+                   yMMh                              :MMM`  
+                   yMMh                              :MMM`  
+                   yMMh                              :MMM`  
+                   yMMh                    `-://:-.  :MMM`  
+                   yMMh                 /ymMMMMMMMMNhyMMM`  
+                   yMMh               /mMMMhs+///oyNMMMMM`  
+                   yMMh              /MMMo`         /NMMM`  
+                   yMMh              hMMh            /MMM`  
+                   yMMh              +MMN/          .dMMh   
+       -oydmmmdhs+.yMMh               oNMMms/----/odMMMh`   
+    `sNMMMMmmmNMMMMMMMh                .odMMMMMMMMMMNs-     
+   :NMMd+.      -oNMMMh                   `-/+ooo+:.        
+   NMMs           `mMMh                                     
+  `NMMo            dMMy                                     
+   /MMMy:`      `/dMMm.                                     
+    -hMMMMmhhhdNMMMNs`                                      
+      `/sdmNMMNmho:                 
+      """                        
+]
 
 
 def enemy_img(num):
